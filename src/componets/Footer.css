@@ -1,0 +1,26 @@
+.footer-section {
+  background: #0b1224;
+  color: #d7e1f5;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.footer-section ul li:hover {
+  color: #00d4ff;
+}
+
+.social-icon {
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+  background: #00d4ff;
+  color: #000;
+}
