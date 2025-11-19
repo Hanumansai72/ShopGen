@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Navbar.css"; // optional for extra styling
+import "./Navbar.css";
 
 export default function ShopGenNavbar() {
   return (
@@ -9,16 +10,17 @@ export default function ShopGenNavbar() {
       <div className="container">
 
         {/* Logo */}
-        <motion.a 
-          href="/" 
-          className="navbar-brand fw-bold fs-3"
+        <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <span style={{ color: "#007bff" }}>Shop</span>
-          <span style={{ color: "#00d4ff" }}>Gen</span>
-        </motion.a>
+          <Link to="/" className="navbar-brand fw-bold fs-3 text-decoration-none">
+            <span style={{ color: "#007bff" }}>Shop</span>
+            <span style={{ color: "#00d4ff" }}>Gen</span>
+          </Link>
+        </motion.div>
 
+        {/* Mobile Toggle */}
         <button
           className="navbar-toggler"
           type="button"
@@ -28,16 +30,25 @@ export default function ShopGenNavbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Menu */}
+        {/* MENU */}
         <div className="collapse navbar-collapse" id="navMenu">
+
+          {/* Navigation Links */}
           <ul className="navbar-nav mx-auto gap-4 fs-5">
-            <li className="nav-item"><a className="nav-link" href="#">Home</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Categories</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">Deals</a></li>
-            <li className="nav-item"><a className="nav-link" href="#">About</a></li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/product">Products</Link>
+            </li>
+
+            
+
+            
           </ul>
 
-          {/* Search Bar */}
+          {/* SEARCH BAR */}
           <div className="d-flex align-items-center bg-light rounded-pill px-3 py-2 search-box">
             <i className="bi bi-search fs-5 me-2"></i>
             <input
@@ -50,29 +61,40 @@ export default function ShopGenNavbar() {
             </button>
           </div>
 
-          {/* Icons */}
+          {/* RIGHT ICONS */}
           <div className="d-flex align-items-center gap-3 ms-3">
+
+            {/* Wishlist */}
             <div className="position-relative">
-              <i className="bi bi-heart fs-4"></i>
-              <span className="badge bg-info position-absolute top-0 start-100 translate-middle">3</span>
+              <Link to="/wishlist" className="text-dark">
+                <i className="bi bi-heart fs-4"></i>
+                <span className="badge bg-info position-absolute top-0 start-100 translate-middle">3</span>
+              </Link>
             </div>
 
+            {/* Cart */}
             <div className="position-relative">
-              <i className="bi bi-cart fs-4"></i>
-              <span className="badge bg-primary position-absolute top-0 start-100 translate-middle">7</span>
+              <Link to="/cart" className="text-dark">
+                <i className="bi bi-cart fs-4"></i>
+                <span className="badge bg-primary position-absolute top-0 start-100 translate-middle">7</span>
+              </Link>
             </div>
 
             {/* Profile */}
-            <div
-              className="rounded-circle d-flex justify-content-center align-items-center text-white fs-5"
-              style={{
-                width: "45px",
-                height: "45px",
-                background: "linear-gradient(45deg, #007bff, #00d4ff)"
-              }}
-            >
-              J
-            </div>
+            <Link to="/login">
+              <div
+                className="rounded-circle d-flex justify-content-center align-items-center text-white fs-5"
+                style={{
+                  width: "45px",
+                  height: "45px",
+                  background: "linear-gradient(45deg, #007bff, #00d4ff)",
+                  cursor: "pointer"
+                }}
+              >
+                J
+              </div>
+            </Link>
+
           </div>
         </div>
       </div>
